@@ -5,12 +5,11 @@ from django.views.generic import TemplateView
 
 def home(request):
     if request.method == 'POST':
-        form=Number(request.POST)
-        
+        form=Number(request.POST)   
         if form.is_valid():
             text = form.cleaned_data['x']
             text2 = form.cleaned_data['y']
-            
+
             if 'add' in request.POST:
                 result = text + text2
             elif 'sub' in request.POST:
