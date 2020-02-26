@@ -1,11 +1,26 @@
 <html>
-    <title>Calculator</title>
-    <body>
-        <p><input type="text" name="x" ></p>
-        <p><input type="text" name="y" ></p> 
-        <input type="submit" value="+" name="+">
-        <input type="submit" value="-" name="-">
-        <input type="submit" value="*" name="*">
-        <input type="submit" value="/" name="/">
-    </body>
+    <title>Test</title>
+    <h1>Calculator</h1>
+      <br/>
+      <br/>
+
+
+      <form action="" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+
+
+          <button type="submit" name="add">+</button>
+          <button type="submit" name="sub">-</button>
+          <button type="submit" name="mul">*</button>
+          <button type="submit" name="div">/</button>
+
+
+
+      </form>
+
+      <br/>
+      <br/>
+       <h3>Result:  {{ result }}</h3>
 </html>
