@@ -1,0 +1,30 @@
+<html>
+    <title>Calculator</title>
+    <h1>Calculator</h1>
+      <br/>
+      <br/>
+
+
+      <form action="" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+
+
+
+          <button type="submit" id="add" name="add">+</button>
+          <button type="submit" id="sub" name="sub">-</button>
+          <button type="submit" id="mul" name="mul">*</button>
+          <button type="submit" id="div" name="div">/</button>
+          <button type="submit" id="continue" name="Continue">Continue</button>
+
+
+
+      </form>
+
+      <br/>
+      <br/>
+      <body>
+       <h3>Result:  {{ result }}</h3>
+
+        </body>
+</html>

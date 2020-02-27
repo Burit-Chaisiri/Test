@@ -1,29 +1,9 @@
 <html>
-    <title>Calculator</title>
-    <h1>Calculator</h1>
-      <br/>
-      <br/>
-
-
-      <form action="" method="post">
-          {% csrf_token %}
-          {{ form.as_p }}
-
-
-
-          <button type="submit" id="add" name="add">+</button>
-          <button type="submit" id="sub" name="sub">-</button>
-          <button type="submit" id="mul" name="mul">*</button>
-          <button type="submit" id="div" name="div">/</button>
-
-
-
-      </form>
-
-      <br/>
-      <br/>
-      <body>
-       <h3>Result:  {{ result }}</h3>
-       <h1>History {{history}}</h1>
-        </body>
+   
+    <title>Home</title>
+    <a href="{% url 'Calculator' %}">Calculator</a>
+    <a href="{% url 'homeGet' %}">CalculatorGet</a>
+    <a href="{% url 'about' %}">About</a>
+        
+    
 </html>
