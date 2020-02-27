@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import Number
 from django.views.generic import TemplateView
+from .models import Calculate
 # Create your views here.
 
 def home(request):
@@ -12,15 +13,21 @@ def home(request):
 
             if 'add' in request.POST:
                 result = text + text2
+                op='add'
             elif 'sub' in request.POST:
                 result = text - text2
+                op='sub'
             elif 'mul' in request.POST:
                 result = text * text2
+                op='mul'
             elif 'div' in request.POST:
-                result = text / text2    
+                result = text / text2
+                op='div'    
             form = Number()
         args = {'form': form , 'result': result}
-        return render(request, 'home.html', args )    
+        Calculate.objects.create(expression =str(text)+op+str(text2),answer = str(result))
+        History=Calculate.objects.all()
+        return render(request, 'home.html', args ,{'history':History})    
     else:  
         form=Number()
     return render(request,'home.html',{'form':form})
